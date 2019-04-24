@@ -25,6 +25,14 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().delegate = self
         
         googleSigninBtn.style = .wide
+        
+        let tapComments = UITapGestureRecognizer(target: self, action: #selector(googleSigninAction))
+        googleSigninBtn.addGestureRecognizer(tapComments)
+
+    }
+    
+    @objc func googleSigninAction(){
+        GIDSignIn.sharedInstance().signIn()
     }
 
     @IBAction func loginAction(_: UIButton) {
