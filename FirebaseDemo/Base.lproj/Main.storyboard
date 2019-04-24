@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -49,26 +48,25 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BUY-5R-VKX">
-                                <rect key="frame" x="168.66666666666666" y="648" width="38" height="30"/>
+                                <rect key="frame" x="168.66666666666666" y="643" width="38" height="30"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="loginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="db5-6c-itC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAS-Pu-2av">
-                                <rect key="frame" x="142" y="698" width="91" height="30"/>
-                                <state key="normal" title="Google Login"/>
-                                <connections>
-                                    <action selector="googleLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fbJ-YN-xs8"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gHs-PJ-Upe" customClass="GIDSignInButton">
+                                <rect key="frame" x="78" y="688" width="219" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="bEL-sU-ytQ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dAS-Pu-2av" secondAttribute="bottom" constant="50" id="2LM-Lc-ymv"/>
+                            <constraint firstItem="gHs-PJ-Upe" firstAttribute="top" secondItem="BUY-5R-VKX" secondAttribute="bottom" constant="15" id="0TU-am-aNj"/>
                             <constraint firstItem="26P-GT-UeL" firstAttribute="top" secondItem="BIc-wK-Wmh" secondAttribute="bottom" constant="15" id="4ZF-2U-bDk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="26P-GT-UeL" secondAttribute="trailing" constant="45" id="6ah-Ds-jKW"/>
-                            <constraint firstItem="dAS-Pu-2av" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Bt0-g5-pE1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bX4-Cm-2LL" secondAttribute="trailing" constant="45" id="Ep2-xY-NiS"/>
                             <constraint firstItem="bX4-Cm-2LL" firstAttribute="top" secondItem="Tk1-wP-2Cb" secondAttribute="bottom" constant="15" id="Her-VJ-fbm"/>
                             <constraint firstItem="bX4-Cm-2LL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="45" id="Hvm-xq-a9d"/>
@@ -77,13 +75,15 @@
                             <constraint firstItem="BIc-wK-Wmh" firstAttribute="top" secondItem="bX4-Cm-2LL" secondAttribute="bottom" constant="20" id="RKn-fC-2di"/>
                             <constraint firstItem="BUY-5R-VKX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bID-Z2-qDU"/>
                             <constraint firstItem="26P-GT-UeL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="45" id="cnz-mJ-4XR"/>
-                            <constraint firstItem="dAS-Pu-2av" firstAttribute="top" secondItem="BUY-5R-VKX" secondAttribute="bottom" constant="20" id="jhQ-ZE-AfS"/>
+                            <constraint firstItem="gHs-PJ-Upe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dJ0-2m-4ci"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gHs-PJ-Upe" secondAttribute="bottom" constant="40" id="kqE-VF-fdd"/>
                             <constraint firstItem="Tk1-wP-2Cb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="nWJ-lm-Mpa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="g3j-c2-bh4"/>
                     <connections>
+                        <outlet property="googleSigninBtn" destination="gHs-PJ-Upe" id="HcR-k5-U8K"/>
                         <outlet property="passwordText" destination="26P-GT-UeL" id="bld-Bv-VUf"/>
                         <outlet property="usernameText" destination="bX4-Cm-2LL" id="vc3-ET-NJQ"/>
                         <segue destination="DUZ-gF-ZaS" kind="presentation" identifier="loginSucessSegue" id="FV5-vI-j38"/>
@@ -91,7 +91,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1039" y="126"/>
+            <point key="canvasLocation" x="1037.5999999999999" y="125.61576354679804"/>
         </scene>
         <!--Home-->
         <scene sceneID="pBV-xq-ZcM">
@@ -294,6 +294,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="DUZ-gF-ZaS" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XmY-Ku-Mxx">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

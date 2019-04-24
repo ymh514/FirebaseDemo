@@ -14,7 +14,8 @@ import UIKit
 class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     @IBOutlet var usernameText: UITextField!
     @IBOutlet var passwordText: UITextField!
-
+    @IBOutlet weak var googleSigninBtn: GIDSignInButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -22,6 +23,8 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
 
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
+        
+        googleSigninBtn.style = .wide
     }
 
     @IBAction func loginAction(_: UIButton) {
@@ -39,10 +42,6 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         }
     }
 
-    @IBAction func googleLogin(_: UIButton) {
-        GIDSignIn.sharedInstance().signIn()
-//        GIDSignIn.sharedInstance().signInSilently()
-    }
 
     func sign(_: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let error = error {
